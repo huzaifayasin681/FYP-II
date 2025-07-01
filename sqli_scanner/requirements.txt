@@ -1,0 +1,9 @@
+httpx
+requests
+beautifulsoup4
+lxml
+PyYAML
+rich
+colorama
+typer
+Jinja2

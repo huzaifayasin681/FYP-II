@@ -1,0 +1,63 @@
+# File: config/default.yaml
+
+# Seed targets to scan (with at least one query parameter)
+targets:
+  - "https://example.com/test?id=1"
+
+# Optional custom headers (merged with random User-Agent)
+headers:
+  User-Agent: "SQLiScanner/1.0"
+
+# Cookie string (e.g. "sessionid=abc; csrftoken=def")
+cookies: ""
+
+# Unused top-level, kept for backwards compatibility
+post_data: ""
+
+# Proxy list (e.g. ["http://127.0.0.1:8080"])
+proxies: []
+
+# Built-in payload categories to include (omit or empty ⇒ all)
+builtin_payloads:
+  - "classic"
+  - "union"
+  - "time"
+  - "boolean"
+  - "waf-bypass"
+
+# External payload files (one payload per line)
+payload_files:
+  - "payloads/default.txt"
+
+# Inline payload list (extra strings)
+payloads_inline: []
+
+# Marker string for UNION-based payloads
+union_marker: "SQLISCANNERUNIONTEST"
+
+# Rate limiting & retries
+rate_limit: 5        # requests per second
+retries: 3           # retry attempts on failure
+timeout: 10          # per-request timeout (seconds)
+
+# Crawling options
+crawl: true          # enable breadth-first crawl
+crawl_depth: 2       # link-following depth
+crawl_pages: 50      # max pages to fetch
+
+# Detection toggles
+detection:
+  error_based: true
+  time_based: true
+  boolean_based: true
+  union_based: true
+
+# Concurrency & I/O
+threads: 10          # sync worker threads
+async_mode: false    # use async httpx if true
+
+# Reporting
+report_file: ""      # e.g. "reports/scan.json" or .csv or .html
+
+# Logging verbosity: DEBUG, INFO, WARNING, ERROR
+logging_level: "INFO"
