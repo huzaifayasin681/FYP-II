@@ -1,0 +1,11 @@
+requests
+aiohttp
+playwright
+beautifulsoup4
+colorama
+typer
+rich
+yaml
+lxml
+jwt
+smtplib
