@@ -1,5 +1,6 @@
 """Improved GUI for XSS Scanner with error handling."""
 
+from multiprocessing import parent_process
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -15,10 +16,9 @@ from pathlib import Path
 class ImprovedXSScannerGUI:
     """Improved GUI for XSS Scanner."""
     
-    def __init__(self):
-        self.root = tk.Tk()
-        self.root.title("XSS Scanner - Professional Edition")
-        self.root.geometry("900x700")
+    def __init__(self,parent):
+        self.root = parent
+        
         
         # Variables
         self.target_url = tk.StringVar(value="http://testphp.vulnweb.com")
@@ -355,7 +355,7 @@ Unique injection points: {summary['unique_injection_points']}
         
     def run(self):
         """Start the GUI."""
-        self.root.mainloop()
+        
 
 if __name__ == "__main__":
     app = ImprovedXSScannerGUI()

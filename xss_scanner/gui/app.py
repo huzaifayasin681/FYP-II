@@ -12,12 +12,12 @@ from typing import Optional, Dict
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog, scrolledtext
 
-# from .crawler.crawler import Crawler, AsyncCrawler
-from ..crawler.crawler import Crawler, AsyncCrawler
-from ..injector import Injector, AsyncInjector
-from ..analyzer import XSSAnalyzer
-from ..auth import AuthFactory
-from ..report import HTMLReporter, JSONReporter, CSVReporter
+# # from .crawler.crawler import Crawler, AsyncCrawler
+# from crawler.crawler import Crawler, AsyncCrawler
+# from injector import Injector, AsyncInjector
+# from analyzer import XSSAnalyzer
+# from auth import AuthFactory
+# from report import HTMLReporter, JSONReporter, CSVReporter
 
 logger = logging.getLogger(__name__)
 
